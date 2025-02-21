@@ -63,7 +63,7 @@ public class AddFoodController {
         }
         customCategoryField.setVisible(false);
 
-        // Lắng nghe sự kiện chọn trong ComboBox
+
         categoryComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
             if ("Khác".equals(newValue)) {
                 customCategoryField.setVisible(true);
@@ -107,7 +107,6 @@ public class AddFoodController {
             previewImageView.setImage(image);
         }
     }
-    private Category category;
     public void insertCategory() {
         String categoryName = customCategoryField.getText().trim();
 
@@ -117,7 +116,6 @@ public class AddFoodController {
         }
 
         try (Connection connection = DatabaseConnection.getConnection()) {
-            // Kiểm tra xem danh mục đã tồn tại chưa
             String checkQuery = "SELECT category_id FROM food_categories WHERE category_name = ?";
             PreparedStatement checkStmt = connection.prepareStatement(checkQuery);
             checkStmt.setString(1, categoryName);
@@ -126,7 +124,6 @@ public class AddFoodController {
             if (rs.next()) {
                 showAlert(Alert.AlertType.INFORMATION, "Thông báo", "Danh mục đã tồn tại.");
             } else {
-                // Nếu chưa tồn tại, chèn danh mục mới
                 String insertQuery = "INSERT INTO food_categories (category_name) VALUES (?)";
                 PreparedStatement insertStmt = connection.prepareStatement(insertQuery);
                 insertStmt.setString(1, categoryName);
