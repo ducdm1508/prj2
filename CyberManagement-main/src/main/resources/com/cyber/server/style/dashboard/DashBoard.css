@@ -1,0 +1,47 @@
+.info-container, .charts-container {
+    -fx-background-color: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    -fx-border-color: #4a90e2;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 15;
+}
+
+.info-card-1, .info-card-2, .info-card-3 {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding: 25;
+    -fx-background-radius: 15;
+}
+
+.info-card-1 {
+    -fx-background-color: linear-gradient(to right, #43cea2, #185a9d);
+}
+
+.info-card-2 {
+    -fx-background-color: linear-gradient(to right, #ef9c75, #dd373c);
+}
+
+.info-card-3 {
+    -fx-background-color: linear-gradient(to right, #36d1dc, #5b86e5);
+}
+
+.info-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.info-value {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.PieChart {
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}
+
+.BarChart {
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+}

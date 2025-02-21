@@ -1,0 +1,112 @@
+/* Font Awesome font-face */
+/* Font Awesome font-face */
+@font-face {
+    font-family: "FontAwesome";
+    src: url("fonts/fontawesome-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Button styles */
+.add-button {
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+    -fx-font-family: "FontAwesome";  /* Make sure the button uses FontAwesome */
+    -fx-font-size: 16px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #357ab7;
+    -fx-cursor: hand;
+    -fx-transition: background-color 0.3s ease;
+}
+
+/* Add icon styling */
+.add-button {
+    -fx-text-fill: #fff; /* White text */
+    -fx-font-family: "FontAwesome"; /* Make sure the FontAwesome font is applied */
+    -fx-font-size: 20px;
+}
+
+/* On hover */
+.add-button:hover {
+    -fx-background-color: #357ab7;
+}
+
+/* Gradient Background with soft gray theme */
+.main-container {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #ffffff);
+    -fx-padding: 20px;
+    -fx-alignment: center;
+}
+
+/* Title label styles */
+.title-label {
+    -fx-font-family: "FontAwesome"; /* Use FontAwesome */
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 0 0 20px 0;
+    -fx-effect: dropshadow(gaussian, #000, 10, 0, 0, 2);
+    -fx-opacity: 0;  /* Initially hidden */
+}
+
+/* Fade-in effect on hover */
+.title-label:hover {
+    -fx-opacity: 1; /* Fully visible when hovered */
+}
+
+/* Fade-out effect when not hovered */
+.title-label {
+    -fx-opacity: 0;  /* Fully transparent when not hovered */
+}
+
+
+
+/* Field title styles */
+.field-title {
+    -fx-font-family: "FontAwesome"; /* Use FontAwesome */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 5px 0;
+}
+
+/* Input field styles */
+.input-field {
+    -fx-pref-width: 250px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-border-radius: 5px;
+    -fx-border-color: #4a90e2;
+    -fx-opacity: 0;  /* Initially invisible */
+    -fx-transition: opacity 0.5s ease-in-out;
+}
+
+/* When input field is focused */
+.input-field:focused {
+    -fx-background-color: #f2f2f2;
+    -fx-border-color: #0077b6;
+    -fx-opacity: 1; /* Fade in when focused */
+}
+
+/* Icon styling */
+.field-title .graphic, .title-label .graphic {
+    -fx-padding: 0 10px 0 0;
+}
+
+/* Smooth animation for all fields */
+.input-field, .title-label, .field-title {
+    -fx-opacity: 0;
+    -fx-transition: opacity 0.5s ease-in-out;
+}
+
+.input-field:focus-visible, .title-label:hover {
+    -fx-opacity: 1;
+}
+
+/* Fade-in animation for labels and fields */
+.input-field, .field-title {
+    -fx-opacity: 1;
+    -fx-transition: opacity 1s ease-in-out;
+}

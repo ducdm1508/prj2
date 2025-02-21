@@ -1,0 +1,36 @@
+.root {
+    -fx-background-color: #f4f4f4;
+}
+
+.title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+TextField {
+    -fx-pref-width: 200px;
+    -fx-padding: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #bdc3c7;
+    -fx-background-radius: 5px;
+    -fx-background-color: #ffffff;
+}
+
+.deposit-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+.deposit-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.message-label {
+    -fx-text-fill: green;
+    -fx-font-size: 14px;
+}

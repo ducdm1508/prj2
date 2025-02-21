@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10" stylesheets="@../../style/food/Order.css"
+      xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.cyber.server.controller.food.OrderController">
+
+    <TableView fx:id="orderTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="Order ID"/>
+            <TableColumn fx:id="userColumn" text="Username"/>
+            <TableColumn fx:id="dateColumn" text="Order Date"/>
+            <TableColumn fx:id="foodNamesColumn" text="Food Names"/>
+            <TableColumn fx:id="imageColumn" text="Image"/>
+            <TableColumn fx:id="quantityColumn" text="Quantity"/>
+            <TableColumn fx:id="totalAmountColumn" text="Total Amount"/>
+            <TableColumn fx:id="discountColumn" text="Discount"/>
+            <TableColumn fx:id="statusColumn" text="Status"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+</VBox>

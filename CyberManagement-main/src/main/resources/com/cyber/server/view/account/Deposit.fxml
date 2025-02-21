@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" stylesheets="@../../style/account/Deposit.css"
+            fx:controller="com.cyber.server.controller.account.DepositController">
+
+    <VBox alignment="CENTER" spacing="15">
+        <Label text="Deposit Money" styleClass="title"/>
+
+        <Label text="Enter Amount:"/>
+        <TextField fx:id="amountField" promptText="Amount in USD"/>
+
+        <Label text="Enter Discount Code (if any):"/>
+        <TextField fx:id="discountField" promptText="Discount Code"/>
+
+        <Button fx:id="depositButton" text="Ok" onAction="#handleDeposit" styleClass="deposit-button"/>
+        <Label fx:id="messageLabel" text="" styleClass="message-label"/>
+    </VBox>
+</AnchorPane>

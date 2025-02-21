@@ -1,0 +1,74 @@
+/* Main container styling */
+.main-container {
+    -fx-background-color: linear-gradient(to bottom, #e0eafc, #cfdef3); /* Background color for the entire container */
+    -fx-padding: 20;
+}
+
+/* Search container styling */
+.search-container {
+    -fx-spacing: 10;
+}
+
+.search-field {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 5;
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.icon-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #4a90e2;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient for table header */
+    -fx-text-fill: white; /* White text for headers */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #4a4a4a; /* Dark gray text for headers */
+    -fx-font-weight: bold;
+}
+
+/* Row and Column cell styling */
+.table-view .cell {
+    -fx-background-color: white; /* All rows have the same background color */
+    -fx-text-fill: black; /* Black text for rows */
+    -fx-font-size: 14px; /* Font size for rows */
+    -fx-border-width: 0 0.1px 0 0; /* Thin right border for columns */
+    -fx-border-color: #000000; /* Black color for the border */
+    -fx-alignment: CENTER; /* Center the content horizontally and vertically */
+}
+
+/* Row separator styling */
+.table-view .cell:odd {
+    -fx-background-color: white;
+    -fx-border-width: 0 0.1px 0.1px 0; /* Bottom border for odd rows */
+}
+
+.table-view .cell:even {
+    -fx-background-color: white;
+    -fx-border-width: 0 0.1px 0.1px 0; /* Bottom border for even rows */
+}
+
+/* Add a bottom border to all rows */
+.table-view .cell {
+    -fx-border-bottom-width: 0.1px; /* 0.1px bottom border for separation */
+    -fx-border-color: #000000; /* Black separator line */
+}

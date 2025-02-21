@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/computer/ComputerController.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/computer/FormComputerController.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/food/AddFoodController.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/food/FoodController.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/room/RoomController.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/server/Login.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/controller/server/ServerManager.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/database/DatabaseInitializer.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cyber/server/database/SampleData.java" dialect="MySQL" />
+  </component>
+</project>

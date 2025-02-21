@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      stylesheets="@../../style/report/Report.css" spacing="25" style="-fx-padding: 25;"
+      fx:controller="com.cyber.server.controller.report.ReportController"
+      VBox.vgrow="ALWAYS">
+
+    <!-- Phần chọn ngày -->
+    <HBox spacing="25" alignment="CENTER" HBox.hgrow="ALWAYS">
+        <DatePicker fx:id="startDatePicker" promptText="Ngày bắt đầu" styleClass="date-picker"/>
+        <DatePicker fx:id="endDatePicker" promptText="Ngày kết thúc" styleClass="date-picker"/>
+        <Button text="Hiển thị báo cáo" onAction="#onShowReport" styleClass="button"/>
+    </HBox>
+
+    <Label fx:id="messageLabel" styleClass="message-label" />
+
+    <!-- Biểu đồ -->
+    <HBox spacing="25" alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" styleClass="charts-container">
+        <PieChart fx:id="revenuePieChart" VBox.vgrow="ALWAYS" />
+        <BarChart fx:id="barChart" VBox.vgrow="ALWAYS">
+            <xAxis>
+                <CategoryAxis fx:id="xAxis" label="Month" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="Revenue ($)" />
+            </yAxis>
+        </BarChart>
+    </HBox>
+
+</VBox>

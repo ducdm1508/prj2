@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
+      fx:controller="com.cyber.server.controller.computer.FormComputerController" spacing="20"
+      stylesheets="@../../style/computer/AddNewComputer.css">
+    <HBox spacing="67" alignment="CENTER">
+        <Label text="Name:"/>
+        <TextField fx:id="nameInput"/>
+    </HBox>
+
+    <HBox spacing="15" alignment="CENTER">
+        <Label text="Specifications:"/>
+        <TextField fx:id="specificationsInput"/>
+    </HBox>
+
+    <HBox spacing="37" alignment="CENTER">
+        <Label text="IP Address:"/>
+        <TextField fx:id="ipAddressInput"/>
+    </HBox>
+
+    <HBox spacing="69" alignment="CENTER">
+        <Label text="Room:"/>
+        <ComboBox fx:id="roomComboBox"/>
+    </HBox>
+
+    <!-- HBox cho các nút -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Save" onAction="#handleSaveButton"/>
+        <Button text="Cancel" onAction="#handleCancelButton"/>
+    </HBox>
+</VBox>

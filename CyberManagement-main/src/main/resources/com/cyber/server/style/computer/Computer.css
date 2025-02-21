@@ -1,0 +1,96 @@
+/* General Styles */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Bảng dữ liệu (TableView) */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #34495e;
+    -fx-table-cell-border-color: #34495e;
+    -fx-cell-size: 40px;
+}
+
+/* Table Header Styles */
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white !important;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+}
+
+/* Selection Styles - Fixed */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #1abc9c;
+}
+
+.table-view .table-row-cell:selected .table-cell {
+    -fx-background-color: #1abc9c;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #1abc9c;
+}
+
+/* Hover style */
+.table-row-cell:hover {
+    -fx-background-color: #e8f6f3;
+}
+
+/* Table Cells */
+.table-cell {
+    -fx-background-color: #eaf2f8;
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER;
+}
+
+/* Button Styles */
+Button {
+    -fx-background-color: #77d3ed;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-border-color: #bdc3c7;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1);
+}
+
+Button:hover {
+    -fx-background-color: #5bc0de;
+    -fx-cursor: hand;
+}
+
+/* ComboBox Styles */
+ComboBox {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #bdc3c7;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+/* Label Styles */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+}
+
+/* Filter Panel Styles */
+#filterPanel {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+
+/* VBox and HBox Styles */
+.vbox {
+    -fx-spacing: 10;
+}
+
+.hbox {
+    -fx-spacing: 10;
+}

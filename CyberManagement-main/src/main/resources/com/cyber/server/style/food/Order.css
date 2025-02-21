@@ -1,0 +1,51 @@
+VBox {
+    -fx-padding: 20px;
+    -fx-background-color: #f4f4f4;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+.table-column {
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+.table-cell {
+    -fx-padding: 5px;
+    -fx-border-color: #ddd;
+    -fx-alignment: center;
+}
+.table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+.table-row-cell:even {
+    -fx-background-color: #ffffff;
+}
+.table-row-cell:hover {
+    -fx-background-color: #e0f3ff;
+}
+.table-row-cell:selected {
+    -fx-background-color: #008cff;
+    -fx-text-fill: white;
+}
+.button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #0056b3;
+}
+
+.button:pressed {
+    -fx-background-color: #004494;
+}

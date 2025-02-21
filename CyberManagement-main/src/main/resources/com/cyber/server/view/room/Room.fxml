@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.cyber.server.controller.room.RoomController"
+            style=" -fx-background-color: #f4f4f4;">
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background: white; -fx-border-color: #ccc; -fx-padding: 10;">
+            <FlowPane fx:id="roomGrid" hgap="15" vgap="15" prefWrapLength="500"
+                      style="-fx-padding: 10; -fx-background-color: #ffffff;"/>
+        </ScrollPane>
+    </center>
+
+    <right>
+        <VBox spacing="15" style="-fx-padding: 20px; -fx-border-color: #ccc; -fx-border-width: 1px; -fx-background-color: #ffffff;">
+            <Label text="Room Details" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <Label text="Room Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="nameField" promptText="Enter room name" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Room Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="roomType" promptText="Select room type" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Capacity:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="capacityField" promptText="Enter room capacity" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </GridPane>
+
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Save" onAction="#handleSave" style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+                <Button text="Cancel" onAction="#handleCancel" style="-fx-background-color: #ffc107; -fx-text-fill: white;"/>
+                <Button text="Delete" onAction="#handleDelete" style="-fx-background-color: #dc3545; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </right>
+</BorderPane>

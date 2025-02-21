@@ -1,0 +1,104 @@
+/* Background và border cho các container */
+.info-container, .charts-container {
+    -fx-background-color: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    -fx-border-color: #4a90e2;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-padding: 15;
+}
+
+/* Định dạng cho các thẻ thông tin */
+.info-card-1, .info-card-2, .info-card-3 {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding: 25;
+    -fx-background-radius: 15;
+}
+
+/* Định dạng cho tiêu đề và giá trị thông tin */
+.info-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+.info-value {
+    -fx-font-size: 24px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Định dạng cho biểu đồ */
+/* Cập nhật CSS cho các biểu đồ */
+.PieChart {
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-border-color: #4a90e2;
+}
+
+.BarChart {
+    -fx-background-radius: 10;
+    -fx-padding: 10;
+    -fx-border-color: #4a90e2;
+}
+
+/* Định dạng màu sắc cho các phần trong PieChart */
+.pie-chart .slice {
+    -fx-pie-color: #1E88E5; /* Màu mặc định */
+}
+
+/* Định dạng màu sắc cho các cột trong BarChart */
+.bar-chart .data {
+    -fx-bar-fill: #1E88E5; /* Màu mặc định */
+}
+
+.date-picker {
+    -fx-background-color: linear-gradient(to bottom, #6a11cb, #2575fc);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 5px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+    -fx-transition: 0.3s;
+}
+
+.date-picker:hover {
+    -fx-background-color: linear-gradient(to bottom, #2575fc, #6a11cb);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow {
+    -fx-background-color: white;
+}
+
+/* Nút "Show Report" với màu xanh dương */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #1E88E5, #1565C0); /* Xanh dương */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);
+    -fx-transition: 0.3s;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #1565C0, #1E88E5);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/* Định dạng cho messageLabel */
+.message-label {
+    -fx-font-size: 16px; /* Kích thước chữ lớn hơn */
+    -fx-text-fill: red;  /* Màu chữ đỏ */
+    -fx-font-weight: bold; /* In đậm chữ */
+    -fx-padding: 10px;  /* Thêm khoảng cách xung quanh */
+}

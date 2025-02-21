@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Pos?>
+
+<VBox spacing="15" alignment="CENTER" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cyber.server.controller.account.AddAccountController" styleClass="main-container" stylesheets="@../../style/account/AddAccount.css">
+    <!-- Title Label with Font Awesome Icon -->
+    <Label text="&#xf007; Add New Account" styleClass="title-label"/>
+
+    <!-- Username Field with Font Awesome Icon -->
+    <VBox>
+        <Label text="&#xf007; Username" styleClass="field-title"/>
+        <TextField fx:id="usernameField" promptText="Enter Username" styleClass="input-field"/>
+    </VBox>
+
+    <!-- Password Field with Font Awesome Icon -->
+    <VBox>
+        <Label text="&#xf023; Password" styleClass="field-title"/>
+        <PasswordField fx:id="passwordField" promptText="Enter Password" styleClass="input-field"/>
+    </VBox>
+
+    <!-- Balance Field with Font Awesome Icon -->
+    <VBox>
+        <Label text="&#xf155; Balance" styleClass="field-title"/>
+        <TextField fx:id="balanceField" promptText="Enter Balance" styleClass="input-field"/>
+    </VBox>
+
+    <!-- Add Account Button -->
+    <Button text="&#xf0e7; Add Account" onAction="#addAccount" styleClass="add-button"/>
+</VBox>

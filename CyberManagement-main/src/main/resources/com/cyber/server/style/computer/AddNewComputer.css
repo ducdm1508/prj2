@@ -1,0 +1,79 @@
+/* ======= Nền chính ======= */
+.root {
+    -fx-background-color: #f1f8ff; /* Màu xanh nhạt nhẹ nhàng */
+    -fx-font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ======= Label ======= */
+.label {
+    -fx-text-fill: #4a4a4a; /* Màu xám đậm vừa phải */
+    -fx-font-size: 16px;
+    -fx-font-weight: 500;
+    -fx-padding: 5px 0 5px 0; /* Padding trên và dưới */
+}
+
+/* ======= TextField ======= */
+.text-field {
+    -fx-pref-height: 40px;
+    -fx-pref-width: 250px;
+    -fx-background-color: #ffffff; /* Màu trắng nhẹ */
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #c8d6e5; /* Màu xám nhạt */
+    -fx-border-width: 1px;
+    -fx-padding: 8px; /* Padding cho TextField */
+    -fx-font-size: 14px;
+}
+
+/* Hiệu ứng focus cho TextField */
+.text-field:focused {
+    -fx-border-color: #4e9ddf; /* Màu xanh nhạt khi focus */
+    -fx-background-color: #f6fbff;
+}
+
+/* ======= ComboBox ======= */
+.combo-box {
+    -fx-pref-height: 40px;
+    -fx-pref-width: 250px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #c8d6e5;
+    -fx-padding: 8px; /* Padding cho ComboBox */
+}
+
+/* ======= Button ======= */
+.button {
+    -fx-background-color: #4e9ddf; /* Màu xanh dương nhẹ */
+    -fx-background-radius: 8px;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px; /* Padding cho Button */
+    -fx-cursor: hand;
+    -fx-font-weight: 500;
+}
+
+/* Hiệu ứng hover cho Button */
+.button:hover {
+    -fx-background-color: #3b8ec2; /* Màu xanh dương đậm khi hover */
+}
+
+/* ======= Nút Cancel màu cam ======= */
+.button[text="Cancel"] {
+    -fx-background-color: #f39c12; /* Màu cam sáng */
+}
+
+.button[text="Cancel"]:hover {
+    -fx-background-color: #e67e22; /* Màu cam đậm khi hover */
+}
+
+/* ======= Padding cho AnchorPane ======= */
+.anchor-pane {
+    -fx-padding: 20px; /* Padding chung cho tất cả các phần tử */
+}
+
+/* ======= HBox ======= */
+.hbox {
+    -fx-spacing: 10px; /* Khoảng cách giữa các phần tử trong HBox */
+    -fx-alignment: center; /* Căn giữa các phần tử trong HBox */
+}

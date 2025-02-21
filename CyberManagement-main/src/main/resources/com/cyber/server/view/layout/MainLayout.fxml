@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            stylesheets="@../../style/layout/MainLayout.css"
+            fx:controller="com.cyber.server.controller.layout.LayoutController"
+            fx:id="mainLayout">
+    <top xmlns:fx="http://javafx.com/fxml">
+        <HBox fx:id="header" styleClass="header">
+            <Label text="Cyber Management System" styleClass="label-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <TextField promptText="Search..." styleClass="text-field-search"/>
+            <Button text="🔔" styleClass="button-icon"/>
+            <Button text="👤" styleClass="button-icon"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox alignment="CENTER" styleClass="vbox-left">
+            <ImageView fitHeight="200" fitWidth="200" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../../assets/logo.jpg"/>
+                </image>
+            </ImageView>
+            <Button fx:id="dashboardButton" text="  📊 Dashboard" styleClass="button-dashboard"
+                    onAction="#handleDashboardClick"/>
+            <Button fx:id="computerButton" text="  💻 Computer" styleClass="button-computer"
+                    onAction="#handleComputerClick"/>
+            <Button fx:id="roomsButton" text="  🏠 Room" styleClass="button-rooms"
+                    onAction="#handleRoomClick"/>
+            <Button fx:id="customersButton" text="  👥 Customers" styleClass="button-customers"
+                    onAction="#handleCustomersClick"/>
+            <Button fx:id="reportsButton" text="  📈 Reports" styleClass="button-reports"
+                    onAction="#handleReportsClick"/>
+            <Button fx:id="foodButton" text="  🍔 Food" styleClass="button-food" onAction="#handleFoodClick"/>
+            <Button fx:id="orderButton" text="  🛒 Order" styleClass="button-order" onAction="#handleOrderClick"/>
+            <Button fx:id="logoutButton" text="  🚪 Log Out" styleClass="button-logout" onAction="#handleLogoutClick"/>
+
+        </VBox>
+    </left>
+    <center>
+
+    </center>
+    <bottom>
+        <HBox styleClass="footer">
+            <Label text="© 2025 Cyber Management Inc. All rights reserved." styleClass="label-footer"/>
+        </HBox>
+    </bottom>
+</BorderPane>

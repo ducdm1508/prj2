@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      stylesheets="@../../style/dashboard/DashBoard.css" spacing="25" style="-fx-padding: 25;"
+      fx:controller="com.cyber.server.controller.dashboard.DashBoardController"
+      VBox.vgrow="ALWAYS">
+
+    <HBox spacing="25" alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="info-container">
+        <VBox alignment="CENTER" spacing="10" styleClass="info-card-1" HBox.hgrow="ALWAYS">
+            <Label text="Máy đang sử dụng" styleClass="info-title" />
+            <Label text="10/20" styleClass="info-value" />
+        </VBox>
+        <VBox alignment="CENTER" spacing="10" styleClass="info-card-2" HBox.hgrow="ALWAYS">
+            <Label text="Khách hàng online" styleClass="info-title" />
+            <Label text="15" styleClass="info-value" />
+        </VBox>
+        <VBox alignment="CENTER" spacing="10" styleClass="info-card-3" HBox.hgrow="ALWAYS">
+            <Label text="Doanh thu hôm nay" styleClass="info-title" />
+            <Label text="1,500,000 VNĐ" styleClass="info-value" />
+        </VBox>
+    </HBox>
+
+    <HBox spacing="25" alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" styleClass="charts-container">
+        <PieChart fx:id="usageChart" VBox.vgrow="ALWAYS" />
+        <BarChart fx:id="revenueChart" VBox.vgrow="ALWAYS">
+            <xAxis>
+                <CategoryAxis fx:id="xAxis" label="Khung giờ" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="Doanh thu (VNĐ)" />
+            </yAxis>
+        </BarChart>
+    </HBox>
+</VBox>

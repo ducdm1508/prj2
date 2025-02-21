@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0"
+            prefWidth="700.0"
+            style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom, #E1F5FE, white);" xmlns="http://javafx.com/javafx/23.0.1"
+            fx:controller="com.cyber.server.controller.food.AddFoodController">
+
+    <HBox spacing="20" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0">
+        <!-- Phần bên trái: Nhập thông tin món ăn -->
+        <VBox alignment="CENTER" prefHeight="366.0" prefWidth="372.0" spacing="15">
+            <FontAwesomeIconView glyphName="APPLE" size="40" wrappingWidth="92.22855758666992"/>
+            <Label fx:id="titleAction" prefHeight="27.0" prefWidth="178.0" style="-fx-font-size: 18px; -fx-font-weight: bold;"
+                   text="Add New Food"/>
+
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints hgrow="ALWAYS" prefWidth="250.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                </rowConstraints>
+
+                <!-- Icon + Input Field -->
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <FontAwesomeIconView fill="#0598ff" glyphName="CUTLERY" size="20"
+                                         wrappingWidth="21.314261436462402"/>
+                    <TextField fx:id="nameInput" prefHeight="28.0" prefWidth="230.0" promptText="Enter food name"
+                               style="-fx-background-color: transparent; -fx-border-color: #0589ff; -fx-border-width: 0px 0px 2px 0px;"/>
+                </HBox>
+
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <FontAwesomeIconView fill="#0598ff" glyphName="BOOK" layoutX="1.0" size="20"
+                                         wrappingWidth="21.771440505981445"/>
+                    <TextField fx:id="specificationsInput" prefHeight="28.0" prefWidth="230.0"
+                               promptText="Enter food description"
+                               style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+                </HBox>
+
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <FontAwesomeIconView fill="#0598ff" glyphName="MONEY" size="20"/>
+                    <TextField fx:id="priceInput" prefHeight="28.0" prefWidth="230.0" promptText="Enter price"
+                               style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+                </HBox>
+
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <FontAwesomeIconView fill="#0598ff" glyphName="PLUS" size="20" wrappingWidth="22.114188194274902"/>
+                    <TextField fx:id="quantityInput" prefHeight="28.0" prefWidth="230.0" promptText="Enter quantity"
+                               style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+                </HBox>
+
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <FontAwesomeIconView fill="#0598ff" glyphName="TAGS" size="20"/>
+                    <ComboBox fx:id="categoryComboBox" promptText="Select category"
+                              style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;"/>
+                    <TextField fx:id="customCategoryField" promptText="Nhập danh mục mới" visible="false"/>
+                </HBox>
+
+                <!-- Upload Image Button -->
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                    <FontAwesomeIconView fill="#0598ff" glyphName="IMAGE" size="20" text=""
+                                         wrappingWidth="23.028547286987305"/>
+                    <Label fx:id="imageUrlLabel" prefHeight="29.0" prefWidth="105.0" text="  No image selected">
+                        <font>
+                            <Font name="Cambria Bold" size="12.0"/>
+                        </font>
+                    </Label>
+                    <Button onAction="#handleUploadImage"
+                            style="-fx-background-color: transparent; -fx-border-color: #0598ff;" text="Upload">
+                        <graphic>
+                            <FontAwesomeIconView fill="#0598ff" glyphName="UPLOAD" size="20"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </GridPane>
+
+            <!-- Save & Cancel Buttons -->
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="saveButton" onAction="#handleSaveButton" prefHeight="26.0" prefWidth="98.0"
+                        style="-fx-background-color: #43ec54;" text="Save">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="SAVE" size="20"/>
+                    </graphic>
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Button>
+                <Button onAction="#handleCancelButton" prefHeight="26.0" prefWidth="98.0"
+                        style="-fx-background-color: #FF6B6B;" text="Cancel">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="TIMES" size="20"/>
+                    </graphic>
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- Phần bên phải: Xem trước ảnh -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Image Preview"/>
+            <ImageView fx:id="previewImageView" fitHeight="200" fitWidth="200" preserveRatio="true"
+                       style="-fx-border-color: #0598ff; -fx-border-width: 2px;"/>
+        </VBox>
+    </HBox>
+</AnchorPane>
