@@ -48,7 +48,7 @@ public class AddFoodController {
 
     @FXML
     public void initialize() {
-        categoryComboBox.getItems().add("Khác");
+        categoryComboBox.getItems().add("Other");
         String query = "SELECT * FROM food_categories";
 
         try (Connection connection = DatabaseConnection.getConnection();
@@ -64,7 +64,7 @@ public class AddFoodController {
         customCategoryField.setVisible(false);
 
         categoryComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
-            if ("Khác".equals(newValue)) {
+            if ("Other".equals(newValue)) {
                 customCategoryField.setVisible(true);
                 customCategoryField.requestFocus();
             } else {
@@ -106,12 +106,12 @@ public class AddFoodController {
             previewImageView.setImage(image);
         }
     }
-    private Category category;
+
     public void insertCategory() {
         String categoryName = customCategoryField.getText().trim();
 
         if (categoryName.isEmpty()) {
-            showAlert(Alert.AlertType.ERROR, "Lỗi", "Vui lòng nhập tên danh mục.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Please enter a category name.");
             return;
         }
 
@@ -122,20 +122,20 @@ public class AddFoodController {
             ResultSet rs = checkStmt.executeQuery();
 
             if (rs.next()) {
-                showAlert(Alert.AlertType.INFORMATION, "Thông báo", "Danh mục đã tồn tại.");
+                showAlert(Alert.AlertType.INFORMATION, "Notification", "Category already exists.");
             } else {
                 String insertQuery = "INSERT INTO food_categories (category_name) VALUES (?)";
                 PreparedStatement insertStmt = connection.prepareStatement(insertQuery);
                 insertStmt.setString(1, categoryName);
                 insertStmt.executeUpdate();
 
-                showAlert(Alert.AlertType.INFORMATION, "Thành công", "Danh mục đã được thêm.");
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Category has been added.");
                 categoryComboBox.getItems().add(categoryName);
                 categoryComboBox.setValue(categoryName);
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Lỗi", "Không thể thêm danh mục.");
+            showAlert(Alert.AlertType.ERROR, "Error", "Unable to add category.");
         }
     }
 
@@ -147,9 +147,12 @@ public class AddFoodController {
         String quantityStr = quantityInput.getText();
         String category = categoryComboBox.getValue();
 
-        insertCategory();
+        if ("Other".equals(category)) {
+            insertCategory();
+            category = customCategoryField.getText().trim();
+        }
 
-        if (name.isEmpty() || specifications.isEmpty() || priceStr.isEmpty() || quantityStr.isEmpty() || category == null) {
+        if (name.isEmpty() || specifications.isEmpty() || priceStr.isEmpty() || quantityStr.isEmpty() || category == null || category.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Form Incomplete", "Please fill all fields.");
             return;
         }
@@ -157,6 +160,8 @@ public class AddFoodController {
         String imageUrl = (selectedFile != null) ? selectedFile.getAbsolutePath() : (foodEdit != null ? foodEdit.getImageUrl() : "");
 
         try (Connection connection = DatabaseConnection.getConnection()) {
+            int categoryId = getCategoryId(connection, category); // Get the category ID based on the selected category
+
             if (editMode) {
                 PreparedStatement statement = connection.prepareStatement(
                         "UPDATE FOODS SET food_name=?, description=?, price=?, quantity=?, image_url=?, category_id=? WHERE food_id=?");
@@ -165,7 +170,7 @@ public class AddFoodController {
                 statement.setDouble(3, Double.parseDouble(priceStr));
                 statement.setInt(4, Integer.parseInt(quantityStr));
                 statement.setString(5, imageUrl);
-                statement.setInt(6, foodEdit.getCategory().getIdCategory());
+                statement.setInt(6, categoryId);
                 statement.setInt(7, foodEdit.getId());
                 statement.executeUpdate();
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Food updated successfully.");
@@ -177,7 +182,7 @@ public class AddFoodController {
                 statement.setDouble(3, Double.parseDouble(priceStr));
                 statement.setInt(4, Integer.parseInt(quantityStr));
                 statement.setString(5, imageUrl);
-                statement.setInt(6, 1);
+                statement.setInt(6, categoryId);
                 statement.executeUpdate();
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Food added successfully.");
             }
@@ -186,6 +191,19 @@ public class AddFoodController {
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save food.");
+        }
+    }
+
+    private int getCategoryId(Connection connection, String categoryName) throws Exception {
+        String query = "SELECT category_id FROM food_categories WHERE category_name = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, categoryName);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("category_id");
+            } else {
+                throw new Exception("Category not found");
+            }
         }
     }
 
