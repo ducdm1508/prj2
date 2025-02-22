@@ -3,6 +3,7 @@ package com.cyber.server.controller.computer;
 import com.cyber.server.database.DatabaseConnection;
 import com.cyber.server.model.Computer;
 import com.cyber.server.model.Room;
+import com.cyber.server.validation.ComputerValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -71,31 +72,7 @@ public class FormComputerController {
             e.printStackTrace();
         }
     }
-    private boolean isComputerNameExists(String computerName) throws SQLException {
-        String sql = "SELECT COUNT(*) FROM computers WHERE computer_name = ?";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, computerName);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
-            }
-        }
-        return false;
-    }
-    private boolean isRoomFull(int roomId, int capacity) throws SQLException {
-        String sql = "SELECT COUNT(*) FROM computers WHERE room_id = ?";
 
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setInt(1, roomId);
-            ResultSet rs = pstmt.executeQuery();
-            int computerCount = rs.next() ? rs.getInt(1) : 0;
-
-            return computerCount >= capacity;
-        }
-    }
 
     @FXML
     private void handleSaveButton() {
@@ -106,8 +83,14 @@ public class FormComputerController {
 
         try {
             if (computer == null || !nameInput.getText().equals(computer.getName())) {
-                if (isComputerNameExists(nameInput.getText())) {
+                if (ComputerValidator.isComputerNameExists(nameInput.getText())) {
                     showAlert("Error", "A computer with this name already exists!", Alert.AlertType.ERROR);
+                    return;
+                }
+            }
+            if (computer == null || !ipAddressInput.getText().equals(computer.getIpAddress())){
+                if (ComputerValidator.isComputerIpAddressExists(ipAddressInput.getText())) {
+                    showAlert("Error", "A computer with this Ip already exists!", Alert.AlertType.ERROR);
                     return;
                 }
             }
@@ -116,7 +99,7 @@ public class FormComputerController {
             Room currentRoom = (computer != null) ? computer.getRoom() : null;
 
             if (currentRoom == null || !selectedRoom.equals(currentRoom)) {
-                if (selectedRoom != null && isRoomFull(selectedRoom.getId(), selectedRoom.getCapacity())) {
+                if (selectedRoom != null && ComputerValidator.isRoomFull(selectedRoom.getId(), selectedRoom.getCapacity())) {
                     showAlert("Error", "This room has reached its maximum capacity!", Alert.AlertType.ERROR);
                     return;
                 }

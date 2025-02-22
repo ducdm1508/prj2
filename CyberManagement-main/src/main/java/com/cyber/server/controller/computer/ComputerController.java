@@ -314,7 +314,7 @@ public class ComputerController {
 
     private void openAddEditWindow(Computer computer) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cyber/server/view/computer/AddNewComputer.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cyber/server/view/computer/FormComputer.fxml"));
             Parent root = loader.load();
 
             FormComputerController controller = loader.getController();

@@ -63,11 +63,14 @@ public class AddFoodController {
         }
         customCategoryField.setVisible(false);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47b9a2c (Update)
         categoryComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
             if ("Khác".equals(newValue)) {
                 customCategoryField.setVisible(true);
-                customCategoryField.requestFocus(); // Focus vào ô nhập
+                customCategoryField.requestFocus();
             } else {
                 customCategoryField.setVisible(false);
             }

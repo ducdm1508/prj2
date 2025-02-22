@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER"
       fx:controller="com.cyber.server.controller.computer.FormComputerController" spacing="20"
-      stylesheets="@../../style/computer/AddNewComputer.css">
+      stylesheets="@../../style/computer/FromComputer.css">
     <HBox spacing="67" alignment="CENTER">
         <Label text="Name:"/>
         <TextField fx:id="nameInput"/>
