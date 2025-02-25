@@ -90,14 +90,14 @@ public class ComputerController {
         startPolling();
     }
 
-    private void startPolling() {
+    public void startPolling() {
         scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(() -> {
             Platform.runLater(this::loadComputersFromDatabase);
         }, 0, 5, TimeUnit.SECONDS);
     }
 
-    private void configureTable() {
+    public void configureTable() {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         statusColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatus().toString()));
 
@@ -200,7 +200,7 @@ public class ComputerController {
         });
     }
 
-    private void loadComputersFromDatabase() {
+    public void loadComputersFromDatabase() {
         try (Connection connection = DatabaseConnection.getConnection();
              Statement statement = connection.createStatement()) {
             statement.execute("USE netcafedb;");
@@ -255,7 +255,7 @@ public class ComputerController {
         }
     }
 
-    private void loadRoomsAndStatuses() {
+    public void loadRoomsAndStatuses() {
         List<Room> rooms = loadRoomsFromDB();
         roomFilter.getItems().add(null);
         roomFilter.getItems().addAll(rooms);
@@ -265,7 +265,7 @@ public class ComputerController {
         statusFilter.getItems().addAll(Status.values());
     }
 
-    private List<Room> loadRoomsFromDB() {
+    public List<Room> loadRoomsFromDB() {
         List<Room> rooms = new ArrayList<>();
         try (Connection conn = DatabaseConnection.getConnection();
              Statement stmt = conn.createStatement()) {
@@ -283,7 +283,7 @@ public class ComputerController {
         return rooms;
     }
 
-    private List<String> getUniqueSpecifications() {
+    public List<String> getUniqueSpecifications() {
         List<String> specifications = new ArrayList<>();
         String sql = "SELECT DISTINCT specifications FROM computers";
 
@@ -304,7 +304,7 @@ public class ComputerController {
     }
 
     @FXML
-    private void openNewWindowAddComputer() {
+    public void openNewWindowAddComputer() {
         openAddEditWindow(null);
     }
 
@@ -312,7 +312,7 @@ public class ComputerController {
         openAddEditWindow(computer);
     }
 
-    private void openAddEditWindow(Computer computer) {
+    public void openAddEditWindow(Computer computer) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/cyber/server/view/computer/FormComputer.fxml"));
             Parent root = loader.load();
@@ -384,7 +384,7 @@ public class ComputerController {
         }
     }
 
-    private void handleMaintenance(Computer computer) {
+    public void handleMaintenance(Computer computer) {
         String sql = "UPDATE computers SET last_maintenance_date = ?, status = ? WHERE computer_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -448,13 +448,13 @@ public class ComputerController {
         loadComputersFromDatabase();
     }
 
-    private void clearFilters() {
+    public void clearFilters() {
         roomFilter.setValue(null);
         specFilter.setValue(null);
         statusFilter.setValue(null);
     }
     @FXML
-    private void handleLockAction(Computer selectedComputer) {
+    public void handleLockAction(Computer selectedComputer) {
         if (selectedComputer != null) {
             String clientIP = selectedComputer.getIpAddress();
             ServerManager.lockClient(clientIP);
@@ -465,7 +465,7 @@ public class ComputerController {
     }
 
     @FXML
-    private void handleUnlockAction(Computer selectedComputer) {
+    public void handleUnlockAction(Computer selectedComputer) {
         if (selectedComputer != null) {
             String clientIP = selectedComputer.getIpAddress();
             ServerManager.unlockClient(clientIP);

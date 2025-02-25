@@ -4,6 +4,7 @@ import com.cyber.server.database.DatabaseConnection;
 import com.cyber.server.model.Room;
 import com.cyber.server.model.RoomType;
 import com.cyber.server.model.RoomTypeName;
+import com.cyber.server.validation.RoomValidation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -195,6 +196,10 @@ public class RoomController {
             showError("All fields must be filled.");
             return;
         }
+        if (RoomValidation.isRoomNameExists(nameField.getText())) {
+            showError("Room name already exists. Please choose a different name.");
+            return;
+        }
 
         try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(INSERT_ROOM_QUERY)) {
@@ -216,6 +221,16 @@ public class RoomController {
 
         if (machineCount > capacity) {
             showError("Cannot update the room because the number of machines has reached the maximum capacity.");
+            return;
+        }
+
+        if (nameField.getText().isEmpty() || capacityField.getText().isEmpty() || roomType.getValue() == null) {
+            showError("All fields must be filled.");
+            return;
+        }
+
+        if (RoomValidation.isRoomNameExistsForUpdate(nameField.getText(), room.getId())) {
+            showError("Room name already exists. Please choose a different name.");
             return;
         }
         try (Connection connection = DatabaseConnection.getConnection();

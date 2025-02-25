@@ -54,7 +54,7 @@ public class FormComputerController {
         loadRooms();
     }
 
-    private void loadRooms() {
+    public void loadRooms() {
         List<Room> rooms = new ArrayList<>();
         String sql = "SELECT * FROM rooms";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -75,12 +75,15 @@ public class FormComputerController {
 
 
     @FXML
-    private void handleSaveButton() {
+    public void handleSaveButton() {
         if (nameInput.getText().isEmpty() || specificationsInput.getText().isEmpty() || ipAddressInput.getText().isEmpty() || roomComboBox.getValue() == null) {
             showAlert("Error", "All fields are required!", Alert.AlertType.ERROR);
             return;
         }
-
+        if (!ComputerValidator.isValidationIpAddress(ipAddressInput.getText())) {
+            showAlert("Error", "Invalid IP address format!", Alert.AlertType.ERROR);
+            return;
+        }
         try {
             if (computer == null || !nameInput.getText().equals(computer.getName())) {
                 if (ComputerValidator.isComputerNameExists(nameInput.getText())) {
@@ -131,7 +134,7 @@ public class FormComputerController {
         }
     }
 
-    private void addComputer() throws SQLException {
+    public void addComputer() throws SQLException {
         String sql = "INSERT INTO computers (computer_name, specifications, ip_address, room_id) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -151,7 +154,7 @@ public class FormComputerController {
         }
     }
 
-    private void updateComputer(Computer computer) throws SQLException {
+    public void updateComputer(Computer computer) throws SQLException {
         String sql = "UPDATE computers SET computer_name = ?, specifications = ?, ip_address = ?, room_id = ? WHERE computer_id = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -179,16 +182,16 @@ public class FormComputerController {
     }
 
     @FXML
-    private void handleCancelButton() {
+    public void handleCancelButton() {
         closeWindow();
     }
 
-    private void closeWindow() {
+    public void closeWindow() {
         Stage stage = (Stage) nameInput.getScene().getWindow();
         stage.close();
     }
 
-    private void showAlert(String title, String message, Alert.AlertType alertType) {
+    public void showAlert(String title, String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
         alert.setHeaderText(null);
